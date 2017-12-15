@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -11,14 +5,29 @@ import {
   Text,
   View
 } from 'react-native';
+import firebase from 'firebase';
 import {Header} from './src/components/common';
+import LoginForm from './src/components/LoginForm';
 
 export default class App extends Component<{}> {
+  componentWillMount() {
+    // Initialize Firebase
+    var config = {
+     apiKey: "AIzaSyCgRywhtuBEjeRllke5oEsaXZUgVETeKdA",
+     authDomain: "authentication-51c7c.firebaseapp.com",
+     databaseURL: "https://authentication-51c7c.firebaseio.com",
+     projectId: "authentication-51c7c",
+     storageBucket: "authentication-51c7c.appspot.com",
+     messagingSenderId: "483655217195"
+    };
+    firebase.initializeApp(config);
+  }
+
   render() {
     return (
       <View>
         <Header headerText="Authentication" />
-        <Text> An App! </Text>
+        <LoginForm />
       </View>
     );
   }
