@@ -10,6 +10,8 @@ import {Header} from './src/components/common';
 import LoginForm from './src/components/LoginForm';
 
 export default class App extends Component<{}> {
+  state = { loggedIn: false };
+
   componentWillMount() {
     // Initialize Firebase
     var config = {
@@ -21,6 +23,12 @@ export default class App extends Component<{}> {
      messagingSenderId: "483655217195"
     };
     firebase.initializeApp(config);
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user){
+        this.setState({})
+      }
+    });
   }
 
   render() {
