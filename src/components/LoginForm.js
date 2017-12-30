@@ -53,6 +53,10 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
+          <Button>Facebook Login</Button>
+          <Button>Google Login</Button>
+        </CardSection>
+        <CardSection>
           <Input
           placeholder= "user@gmail.com"
           label="Email:"
